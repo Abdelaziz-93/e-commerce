@@ -112,9 +112,10 @@ code {
 .icon-edit{
   font-size: 1.1em !important;
 }
-/* .descriptioncart{
-  margin-left: 45% ;
-} */
+.order-img{
+  background-color: #F6F6F6;
+}
+
 @media only screen and (max-width: 980px) {
   .order-card{
     margin: 0 !important;
@@ -435,4 +436,22 @@ footer .footer-contact{
 
 .solde-img{
   height: 400px !important;
+}
+
+/* product Dashboard */
+
+.buttoon{
+  margin-left: 32%;
+}
+
+/* dashboard user */
+
+.table-bordered>:not(caption)>* {
+  border-width: var(--bs-border-width);
+}
+
+/* carousel */
+
+.slick-dots{
+  margin:  40px 0 !important;
 }

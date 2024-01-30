@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
 import { Link , useNavigate} from "react-router-dom";
 
@@ -24,7 +25,12 @@ import { Link , useNavigate} from "react-router-dom";
         }).then((res) => {
           console.log(res.data);
           if (res.status === 200) {
-              // navigate('/all')
+            const user = jwtDecode(res.data.token);
+              if(user.user.role =='admin'){
+                navigate('/products-admin')
+              }else{
+                navigate('/all')
+              }
               localStorage.setItem('Token', res.data.token)
           } else if (res.status === 500) {
               alert('error')
@@ -33,8 +39,6 @@ import { Link , useNavigate} from "react-router-dom";
             setEmail("")
             setPassword("")
       }
-    
- 
     return <>
     <div className="container">
         <div className="row justify-content-center align-item-center py-5 my-5">

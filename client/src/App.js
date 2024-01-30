@@ -13,10 +13,12 @@ import Cart from "./pages/Cart";
 
 // import ShopContextProvider from "./context/ShopContext";
 import ProductDetails from "./components/ProductDetails";
-import DashboardAdmin from "./pages/DashboardAdmin";
+
 import Users from "./components/Users";
 import AddProduct from "./components/AddProduct";
 import ProductsDashboard from "./components/ProductsDashboard";
+import UpdateProduct from "./components/UpdateProduct";
+import Orders from "./components/Orders";
 
 
 
@@ -40,10 +42,11 @@ import ProductsDashboard from "./components/ProductsDashboard";
         <Route path='/enfants' element={<Enfants/>} loading/>
          <Route path='/login' element={<Login/>} loading/>
         <Route path='/signup' element={<SignUp/>} loading/>
-        <Route path='/dashboard-admin' element={<DashboardAdmin/>} loading/> 
+        <Route path='/update-product' element={<UpdateProduct/>} loading/> 
         <Route path='/products-admin' element={<ProductsDashboard/>} loading/>
         <Route path='/add-product-admin' element={<AddProduct/>} loading/>
         <Route path='/users-admin' element={<Users/>} loading/>
+        <Route path='/orders-admin' element={<Orders/>} loading/>
         <Route path="/product/:productId" element={<ProductDetails/>} loading/>
         <Route path="/cart/:productId?" element={<Cart/>} loading/>
 

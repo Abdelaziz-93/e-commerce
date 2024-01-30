@@ -11,15 +11,14 @@ export default function DashboardAdmin() {
     const token = localStorage.getItem('Token')
     if (token) {
       const user = jwtDecode(token);
-      console.log(user);
-
+      console.log(user.user.role);
+      
       if (!user) {
         localStorage.removeItem('Token')
         navigate('/login')
       } else {
         if (user.user.role == 'admin') {
-          navigate('/dashboard-admin')
-          // alert('Welcome Chef')
+           alert('Welcome Chef')
 
         }
       }

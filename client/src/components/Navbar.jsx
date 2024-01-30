@@ -50,7 +50,7 @@ export default function Navbar() {
           </NavLink>
         </li>
       </ul>
-      <form class="d-flex" role="search" >
+      {/* <form class="d-flex" role="search" >
       <input
             className="form-control w-100-sm"
             type="search"
@@ -59,9 +59,9 @@ export default function Navbar() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-        {/* <input className="form-control w-100-sm" type="search" placeholder="Search" aria-label="Search"/> */}
+         <input className="form-control w-100-sm" type="search" placeholder="Search" aria-label="Search"/> 
         <button className="btn3 fs-4" type="submit"><BiSearchAlt2 /></button>
-      </form>
+      </form> */}
       <ul className="navbar-nav">
         <li className="nav-item">
           <NavLink className="nav-link px-3" to="/login"><span className='nav-login'>Log in</span>

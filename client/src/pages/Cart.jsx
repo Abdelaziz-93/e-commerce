@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-
+import { jwtDecode } from "jwt-decode";
 import { FaRegTrashAlt } from "react-icons/fa";
+import axios from 'axios'
 
 
 export default function Cart() {
@@ -106,6 +107,53 @@ export default function Cart() {
     localStorage.setItem('products', JSON.stringify(updatedProducts));
     setData(filterUniqueProducts(updatedProducts));
   };
+  function addOrder() {
+    const token = localStorage.getItem('Token');
+    const products = JSON.parse(localStorage.getItem('products')); // Parse products string into an array
+    if (!token) {
+      console.error("Token not found in localStorage.");
+      return;
+    }
+  
+    // Decode the token to get user information
+    const user = jwtDecode(token);
+    const userId = user.user._id;
+    const orderData = products.map(item => ({
+      productId: item.product._id,
+      size: item.size,
+      quantity: item.quantity
+    }));
+  
+    // Include the token in the request headers
+    const headers = {
+      'Authorization': `Bearer ${token}`
+    };
+  
+    axios.post('http://localhost:5000/order/newOrder', {
+      customerId: userId, // Include the user ID in the request body
+        products: orderData,
+        price: total + delivery
+      }, {
+        headers: headers
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.status === 200) {
+          alert('your order is added successffly')
+        } else if (res.status === 500) {
+          alert('error')
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding order:", error);
+      });
+  }
+  
+  
+
+
+  
+  
   
   return (
     <div className='panier my-5'>
@@ -125,20 +173,20 @@ export default function Cart() {
                       <div className='float-start order-img'>
                         <img src={`http://localhost:5000/uploads/${value.product.image[0]}`} className='imgcart w-100' alt="" />
                       </div>
-                      <div className='float-end ms-4 description'>
-                        <div className="row">
+                      <div className='float-end ms-4 description w-100'>
+                        <div className="row d-flex justify-content-between">
                           <div className="col-md-9">
                             <h6 className='my-3'><span className=''>{value.product.name}</span></h6>
                             <p><span className='text-secondary'>{value.product.short_description}</span></p>
                             <p>
-                              <span className='me-2 text-secondary'>{`Size:`}<button onClick={()=>descrementSize(value.product._id)} className='btn' >-</button>{value.size}<button onClick={()=>IncrementSize(value.product._id) } className='btn'>+</button></span>
-                              <span className='text-secondary'>{`Quantity`}<button onClick={()=> descrementQuantity(value.product._id) } className='btn'>-</button>{value.quantity} <button onClick={()=>IncrementQuantity(value.product._id) } className='btn'>+</button></span> 
+                              <span className='me-2 text-secondary'>{`Size:`}<button onClick={()=>descrementSize(value.product._id)} className='btn py-0 px-1' >-</button>{value.size}<button onClick={()=>IncrementSize(value.product._id) } className='btn py-0 px-1'>+</button></span>
+                              <span className='text-secondary'>{`Quantity`}<button onClick={()=> descrementQuantity(value.product._id) } className='btn py-0 px-1'>-</button>{value.quantity} <button onClick={()=>IncrementQuantity(value.product._id) } className='btn py-0 px-1'>+</button></span> 
                             </p>
                             <p><span onClick={() => removeProduct(value.product._id)} 
                               style={{ cursor: 'pointer', color: 'red' }}><FaRegTrashAlt /></span></p>
                           </div>
                           <div className='col-md-2'>
-                            <p className='product-price'>{`${value.product.price}$`}</p>
+                            <p className='product-price my-2'>{`${value.product.price}$`}</p>
                           </div>
                         </div>
                       </div>
@@ -167,8 +215,7 @@ export default function Cart() {
                   </tr>
                 </tbody>
               </table>
-              <div className='text-center my-4'><button className='btn btn1 fw-4'>Checkout</button></div>
-              <div className='text-center'><button className='btn btn2 fw-1'><span><i className='text-color-primary'>Pay</i></span><span className='text-color-ciel'><i>Pal</i></span></button></div>
+              <div className='text-center my-4'><button className='btn btn1 fw-4' onClick={addOrder}>Checkout</button></div>
             </div>
           </div>
         </div>

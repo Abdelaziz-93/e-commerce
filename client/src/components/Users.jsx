@@ -1,72 +1,53 @@
-import React from 'react'
-import Sidebar from './Sidebar'
-import Logo from './../assets/image/new shoes.jpg'
+
+import React, { useEffect, useState } from 'react';
+import Sidebar from './Sidebar';
+import axios from 'axios';
 
 export default function Users() {
-  return (<>
-  <div className="container-fluid">
-    <div className="row">
-    <Sidebar/>
-    <div className='col-md-10'>
-      <h2>Users</h2>
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/customers/users")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+      });
+  }, []);
+
+  return (
+    <div className="container-fluid">
       <div className="row">
-    <div className="col-md-3">
-    <div className="card">
-  <img src={Logo} className="card-img-top" alt="..."/>
-  <div className="card-body text-center py-5 border-top">
-    <h5 className="card-title">User</h5>
-    <p className="card-text">Customer</p>
-    <a href="#" class="">Admin@gmail.com</a>
-  </div>
-</div>
-</div>
-<div className="col-md-3">
-    <div className="card">
-  <img src={Logo} className="card-img-top" alt="..."/>
-  <div className="card-body text-center py-5 border-top">
-    <h5 className="card-title">User</h5>
-    <p className="card-text">Customer</p>
-    <a href="#" class="">Admin@gmail.com</a>
-  </div>
-</div>
-</div>
-<div className="col-md-3">
-    <div className="card">
-  <img src={Logo} className="card-img-top" alt="..."/>
-  <div className="card-body text-center py-5 border-top">
-    <h5 className="card-title">User</h5>
-    <p className="card-text">Customer</p>
-    <a href="#" class="">Admin@gmail.com</a>
-  </div>
-</div>
-</div>
-<div className="col-md-3">
-    <div className="card">
-  <img src={Logo} className="card-img-top" alt="..."/>
-  <div className="card-body text-center py-5 border-top">
-    <h5 className="card-title">User</h5>
-    <p className="card-text">Customer</p>
-    <a href="#" class="">Admin@gmail.com</a>
-  </div>
-</div>
-</div>
-<div className="col-md-3 my-3">
-    <div className="card">
-  <img src={Logo} className="card-img-top" alt="..."/>
-  <div className="card-body text-center py-5 border-top">
-    <h5 className="card-title">User</h5>
-    <p className="card-text">Customer</p>
-    <a href="#" class="">Admin@gmail.com</a>
-  </div>
-</div>
-</div>
-</div>
+        <Sidebar />
+        <div className="col-md-10">
+          <div className="text-center my-5">
+            <h2>USERS</h2>
+          </div>
+          <div className="table-responsive">
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th className="py-3 ps-2">Name</th>
+                  <th className="py-3 ps-2">Email</th>
+                  <th className="py-3 ps-2">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((user, index) => (
+                  <tr key={index}>
+                    <td className="py-4 ps-2">{`${user.first_name} ${user.last_name}`}</td>
+                    <td className="py-4 ps-2">{user.email}</td>
+                    <td className="py-4 ps-2">{user.role}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-  
-  
-  </>
-    
-  )
+  );
 }
+
+

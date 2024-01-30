@@ -5,23 +5,39 @@ import axios from "axios";
 import { MdMode } from "react-icons/md";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-import soldeImg from '../assets/image/solde.PNG'
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 export default function ProductsDashboard() {
     const [data, setData] = useState([]);
+    const navigate = useNavigate()
+  useEffect(() => {
+
+    const token = localStorage.getItem('Token')
+    if (token) {
+      const user = jwtDecode(token);
+      console.log(user.user.role);
+      
+      if (!user) {
+        localStorage.removeItem('Token')
+        navigate('/login')
+      } else {
+        if (user.user.role == 'admin') {
+           alert('Welcome Chef')
+
+        }
+      }
+    } else {
+      navigate('/login')
+    }
+  }, [])
     useEffect(() => {
         axios.get("http://localhost:5000/product/getProducts").then((res) => {
           setData(res.data);
         });
       }, []);
 
-    //   const removeProduct = (productId) => {
-    //     useEffect(() => {
-    //         axios.get("http://localhost:5000/product/getProducts").then((res) => {
-    //           setData(res.data);
-    //         });
-    //       }, []);
-    //   };
     const removeProduct = (productId) => {
         axios.delete(`http://localhost:5000/product/deleteProduct/${productId}`)
           .then((res) => {
@@ -33,6 +49,10 @@ export default function ProductsDashboard() {
             console.error("Error removing product:", error);
           });
       };
+
+      const handleAddToCart=(productId)=>{
+        localStorage.setItem('id' ,productId)
+      }
     
       
   return (<>
@@ -42,7 +62,7 @@ export default function ProductsDashboard() {
     
         <div className="col-md-10">
         <div className="container"> 
-        <div className='text-center'>
+        <div className='text-center py-4'>
           <h1>WELCOM CHEF</h1>
         </div>
           <div className="row">
@@ -53,8 +73,7 @@ export default function ProductsDashboard() {
             <h6 className="py-2">{value.name}</h6>
             <p className="product-marque">{value.marque} </p>
             <p className="product-price">{value.price}$</p>
-            <p><span className='ms-5 me-5'><MdMode size={20}/></span><span onClick={() => removeProduct(value._id)} 
-                              style={{ cursor: 'pointer', color: 'red' }}><FaRegTrashAlt size={20}/></span></p>
+            <p><span><button className='btn btn-secondary rounded-0' onClick={()=>handleAddToCart(value._id)}><NavLink className='text-decoration-none text-white' to='/update-product'>edit<MdMode size={15}/></NavLink></button></span><span className='buttoon'><button className='btn btn-secondary rounded-0' onClick={() => removeProduct(value._id)}>delete<FaRegTrashAlt size={15}/></button></span></p>
             </div>
               </div> })}
           </div>
