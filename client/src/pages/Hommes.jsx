@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import soldeImgSnow from '../assets/image/soldesnow.PNG'
+import soldeImg from '../assets/image/solde.PNG'
 
 export default function Hommes() {
   const [data, setData] = useState([]);
@@ -22,7 +22,7 @@ export default function Hommes() {
     <>
       <div className="container">
       <div className="">
-          <img src={soldeImgSnow} className="solde-img w-100" alt="" />
+          <img src={soldeImg} className="solde-img w-100" />
         </div> 
         <div className="row">
           {data.map((value, key)=>{

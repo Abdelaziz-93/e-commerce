@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import soldeImgSnow from '../assets/image/soldesnow.PNG'
+import soldeImg from '../assets/image/solde.PNG'
 
 export default function Enfants() {
   const [data, setData] = useState([]);
@@ -21,8 +21,8 @@ export default function Enfants() {
     <>
       <div className="container"> 
       <div className="">
-          <img src={soldeImgSnow} className="solde-img w-100" alt='' />
-        </div>
+          <img src={soldeImg} className="solde-img w-100" />
+        </div> 
         <div className="row">
           {data.map((value, key)=>{
            return <div className="col-md-3 rounded-0 cards my-3" key = {key}>

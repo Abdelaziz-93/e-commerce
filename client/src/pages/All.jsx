@@ -7,6 +7,7 @@ import Slider from "react-slick";
 
 export default function All() {
   const [data, setData] = useState([]);
+  const idOne='65ba2c37510b1e345f702023'
   const settings = {
     dots: true,
     infinite: true,
@@ -73,6 +74,31 @@ export default function All() {
             </div>
               </div> })}
           </div>
+          <div className=" py-4 border-top">
+          <h2>
+          Featured
+          </h2>
+        </div>
+        <div className="row">
+          
+        <div className="col-md-6 my-2">
+        <div className="card-Featured position-relative">
+          <h2 className="card-Featured-name py-2 text-white fs-3">The Latest Nike Dunk</h2>
+          <button className="btn btn-light fw-bold" onClick={() => goToProductDetail('65ba3272510b1e345f702057')}>Shop</button>
+          </div>
+        </div>
+        <div className="col-md-6 my-2">
+        <div className="card-Featured2 position-relative">
+          <h2 className="card-Featured-name py-2 text-white fs-3">Striped Adidas Shoes</h2>
+          <button className="btn btn-light fw-bold" onClick={() => goToProductDetail('65ba3421510b1e345f70205f')}>Shop</button>
+          </div>
+        </div>
+          
+        </div>
+          <div className=" py-4 border-top">
+          <h2>
+            Trending
+          </h2>
         </div>
         <Slider {...settings} className='slider'>
       
@@ -88,6 +114,10 @@ export default function All() {
       
       
     </Slider>
+        </div>
+        
+
+        
       </>
     );
 

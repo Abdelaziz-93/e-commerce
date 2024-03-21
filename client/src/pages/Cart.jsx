@@ -148,13 +148,6 @@ export default function Cart() {
         console.error("Error adding order:", error);
       });
   }
-  
-  
-
-
-  
-  
-  
   return (
     <div className='panier my-5'>
       <div className="container">

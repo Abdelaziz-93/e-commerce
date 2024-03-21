@@ -455,3 +455,33 @@ footer .footer-contact{
 .slick-dots{
   margin:  40px 0 !important;
 }
+
+/* Featured */
+
+.card-Featured{
+  background-image: url(../image/Dunk.PNG);
+  height: 400px ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+.card-Featured2{
+  background-image: url(../image/adidasfeatured.PNG);
+  height: 400px ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.card-Featured-name{
+  position: absolute;
+  left: 10%;
+  bottom: 25%;
+}
+
+.card-Featured .btn,.card-Featured2 .btn{
+  position: absolute;
+  left: 10%;
+  bottom: 15%;
+}
+
