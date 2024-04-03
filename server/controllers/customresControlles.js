@@ -34,7 +34,7 @@ const loginUser = async(req,res)=>{
         if(!comparePassword){
             res.status(404).json({error: "wrong password!"})
         } 
-        const token = jwt.sign({ user: customer }, process.env.SECRET_KEY);
+        const token = jwt.sign({ user: customer },'secret-key' );
         res.status(200).json({message : "logged in successfully" ,token:token})
     }
     } catch (error) {

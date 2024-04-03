@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.44abf372.css",
+    "main.js": "/static/js/main.69e05d23.js",
+    "static/media/solde.PNG": "/static/media/solde.2f2a8ed76b95a7c1826d.PNG",
+    "static/media/WOMEN.PNG": "/static/media/WOMEN.1dbc5fbce22b794a67bf.PNG",
+    "static/media/MEN.PNG": "/static/media/MEN.26c04faec21743dce208.PNG",
+    "static/media/KIDS.PNG": "/static/media/KIDS.700a82ceab1c15d28942.PNG",
+    "static/media/adidasfeatured.PNG": "/static/media/adidasfeatured.28211a8bae58d9300e7d.PNG",
+    "static/media/Dunk.PNG": "/static/media/Dunk.d32486d45a46b64faa67.PNG",
+    "static/media/new_balance-removebg-preview.png": "/static/media/new_balance-removebg-preview.ff04fc2103e2976119e1.png",
+    "static/media/black_shoes_logo-removebg-preview.png": "/static/media/black_shoes_logo-removebg-preview.dfb817392f6a09d46b46.png",
+    "static/media/adidas-removebg-preview.png": "/static/media/adidas-removebg-preview.68e6f8d7e0fa015d56dc.png",
+    "static/media/Symbole-Puma-removebg-preview.png": "/static/media/Symbole-Puma-removebg-preview.0730bedce8cfe2013d17.png",
+    "static/media/gratis-png-logotipo-de-nike-swoosh-nike-removebg-preview.png": "/static/media/gratis-png-logotipo-de-nike-swoosh-nike-removebg-preview.318b2daf4a82420a499e.png",
+    "static/media/new shoes.jpg": "/static/media/new shoes.8df324f6fd304e78d689.jpg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.44abf372.css.map": "/static/css/main.44abf372.css.map",
+    "main.69e05d23.js.map": "/static/js/main.69e05d23.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44abf372.css",
+    "static/js/main.69e05d23.js"
+  ]
+}

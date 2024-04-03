@@ -1,2 +1,4 @@
 .env
 /node_modules
+process.env.MONGODB_URL
+process.env.SECRET_KEY
