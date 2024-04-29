@@ -7,7 +7,7 @@ export default function Users() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${window.location.origin}/customers/users`)
+    axios.get(`http://localhost:5000/customers/users`)
       .then((res) => {
         setData(res.data);
       })

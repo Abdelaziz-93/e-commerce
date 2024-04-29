@@ -7,7 +7,7 @@ export default function Hommes() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${window.location.origin}/product/getProductByCategory/658f1a78c93e9178bf6d4398`).then((res) => {
+    axios.get(`http://localhost:5000/product/getProductByCategory/658f1a78c93e9178bf6d4398`).then((res) => {
       setData(res.data);
       console.log(res.data);
     });
@@ -28,7 +28,7 @@ export default function Hommes() {
           {data.map((value, key)=>{
            return <div className="col-md-3 rounded-0 cards my-3" key = {key} >
             <div className="caards p-0 " onClick={() => goToProductDetail(value._id)} >
-          <img src={`${window.location.origin}/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
+          <img src={`http://localhost:5000/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
           <h6 className="py-2">{value.name}</h6>
           <p className="product-marque">{value.marque} </p>
           <p className="product-price">{value.price}$</p>

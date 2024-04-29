@@ -21,10 +21,10 @@ app.use('/product',productRoutes)
 app.use('/order',orderRoutes)
 app.use('/category',categoryRoutes)
 
-app.get("/",(req,res)=>{
-  app.use(express.static(path.resolve(__dirname,'client','build')));
-  res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-})
+// app.get("/",(req,res)=>{
+//   app.use(express.static(path.resolve(__dirname,'client','build')));
+//   res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+// })
 
 
 

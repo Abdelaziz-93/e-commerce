@@ -129,7 +129,7 @@ export default function Cart() {
       'Authorization': `Bearer ${token}`
     };
   
-    axios.post(`${window.location.origin}/order/newOrder`, {
+    axios.post(`http://localhost:5000/order/newOrder`, {
       customerId: userId, // Include the user ID in the request body
         products: orderData,
         price: total + delivery
@@ -164,7 +164,7 @@ export default function Cart() {
                   data.map((value, key) => {
                     return <div className='order-card d-flex my-5' key={key}>
                       <div className='float-start order-img'>
-                        <img src={`${window.location.origin}/uploads/${value.product.image[0]}`} className='imgcart w-100' alt="" />
+                        <img src={`http://localhost:5000/uploads/${value.product.image[0]}`} className='imgcart w-100' alt="" />
                       </div>
                       <div className='float-end ms-4 description w-100'>
                         <div className="row d-flex justify-content-between">

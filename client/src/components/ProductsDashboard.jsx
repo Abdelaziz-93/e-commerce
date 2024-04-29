@@ -33,13 +33,13 @@ export default function ProductsDashboard() {
     }
   }, [])
     useEffect(() => {
-        axios.get(`${window.location.origin}/product/getProducts`).then((res) => {
+        axios.get(`http://localhost:5000/product/getProducts`).then((res) => {
           setData(res.data);
         });
       }, []);
 
     const removeProduct = (productId) => {
-        axios.delete(`${window.location.origin}/product/deleteProduct/${productId}`)
+        axios.delete(`http://localhost:5000/product/deleteProduct/${productId}`)
           .then((res) => {
             console.log("Product removed successfully");
             // Update products state to reflect the removal

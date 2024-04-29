@@ -22,7 +22,7 @@ import axios from "axios";
       }
       function sendEmail(e){
         e.preventDefault();
-        axios.post(`${window.location.origin}/customers/signup`,{
+        axios.post(`http://localhost:5000/customers/signup`,{
           first_name:firstName,
           last_name:lastName,
           email:email,

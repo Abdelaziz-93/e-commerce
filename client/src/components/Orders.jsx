@@ -6,7 +6,7 @@ export default function Orders() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get(`{${window.location.origin}/order/getOrder`).then((res) => {
+        axios.get(`http://localhost:5000/order/getOrder`).then((res) => {
             setData(res.data);
         });
     }, []);

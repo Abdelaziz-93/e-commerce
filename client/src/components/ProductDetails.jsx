@@ -7,7 +7,7 @@ export default function ProductDetails() {
     const [data, setData] = useState([]);
     
       useEffect(() => {
-        axios.get(`${window.location.origin}/product/getProduct/${productId}`).then((res) => {
+        axios.get(`http://localhost:5000/product/getProduct/${productId}`).then((res) => {
           setData(res.data);
         });
       }, []);
@@ -48,7 +48,7 @@ export default function ProductDetails() {
         <div className="row">
                 <div className="col-md-6">
                    <img src={data.image && Array.isArray(data.image) && data.image.length > 0
-        ? `${window.location.origin}/uploads/${data.image[0]}`: 'fallback-image-url.jpg'} alt="" className=' img-product-detail'/> 
+        ? `http://localhost:5000/uploads/${data.image[0]}`: 'fallback-image-url.jpg'} alt="" className=' img-product-detail'/> 
             </div>
             <div className="col-md-6">
                 <div className='mb-5'>
