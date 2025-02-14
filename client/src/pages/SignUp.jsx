@@ -22,7 +22,7 @@ import axios from "axios";
       }
       function sendEmail(e){
         e.preventDefault();
-        axios.post(`http://localhost:5000/customers/signup`,{
+        axios.post(`https://e-commerce-server-dnm8.onrender.com/customers/signup`,{
           first_name:firstName,
           last_name:lastName,
           email:email,

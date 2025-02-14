@@ -7,7 +7,7 @@ export default function Enfants() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/product/getProductByCategory/658f1aa0c93e9178bf6d439b`).then((res) => {
+    axios.get(`https://e-commerce-server-dnm8.onrender.com/product/getProductByCategory/658f1aa0c93e9178bf6d439b`).then((res) => {
       setData(res.data);
       console.log(res.data);
     });
@@ -27,7 +27,7 @@ export default function Enfants() {
           {data.map((value, key)=>{
            return <div className="col-md-3 rounded-0 cards my-3" key = {key}>
             <div className="caards p-0 " onClick={() => goToProductDetail(value._id)} >
-          <img src={`http://localhost:5000/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
+          <img src={`https://e-commerce-server-dnm8.onrender.com/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
           <h6 className="py-2">{value.name}</h6>
           <p className="product-marque">{value.marque} </p>
           <p className="product-price">{value.price}$</p>

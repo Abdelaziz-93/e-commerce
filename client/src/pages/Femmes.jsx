@@ -8,7 +8,7 @@ import soldeImg from '../assets/image/solde.PNG'
 export default function Femmes() {
   const [data, setData] = useState([])
   useEffect(() => {
-    axios.get(`http://localhost:5000/product/getProductByCategory/658f19d44ad5eb546e939385`).then((res) => {
+    axios.get(`https://e-commerce-server-dnm8.onrender.com/product/getProductByCategory/658f19d44ad5eb546e939385`).then((res) => {
       setData(res.data);
       console.log(res.data);
     });
@@ -30,7 +30,7 @@ export default function Femmes() {
           {data.map((value, key)=>{
            return <div className="col-md-3 rounded-0 cards my-3" key = {key} >
             <div className="caards p-0 " onClick={() => goToProductDetail(value._id)} >
-          <img src={`http://localhost:5000/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
+          <img src={`https://e-commerce-server-dnm8.onrender.com/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
           <h6 className="py-2">{value.name}</h6>
           <p className="product-marque">{value.marque} </p>
           <p className="product-price">{value.price}$</p>

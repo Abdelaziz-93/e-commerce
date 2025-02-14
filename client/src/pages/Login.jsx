@@ -18,7 +18,7 @@ import { Link , useNavigate} from "react-router-dom";
       }
       function sendEmail(e){
         e.preventDefault();
-        axios.post(`http://localhost:5000/customers/login`,{
+        axios.post(`https://e-commerce-server-dnm8.onrender.com/customers/login`,{
 
           email:email,
           password:password

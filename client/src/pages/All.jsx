@@ -47,7 +47,7 @@ export default function All() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/product/getProducts`).then((res) => {
+    axios.get(`https://e-commerce-server-o0pj.onrender.com/product/getProducts`).then((res) => {
       setData(res.data);
     });
   }, []);
@@ -67,7 +67,7 @@ export default function All() {
             {data.map((value, key)=>{
              return <div className="col-md-3 rounded-0 cards my-3" key = {key} >
               <div className="caards p-0 " onClick={() => goToProductDetail(value._id)} >
-            <img src={`http://localhost:5000/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
+            <img src={`https://e-commerce-server-o0pj.onrender.com/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
             <h6 className="py-2">{value.name}</h6>
             <p className="product-marque">{value.marque} </p>
             <p className="product-price">{value.price}$</p>
@@ -105,7 +105,7 @@ export default function All() {
       {data.map((value, key)=>{
            return <div className="col-md-3 rounded-0 cards my-3" key = {key} >
             <div className="caards p-1" onClick={() => goToProductDetail(value._id)} >
-          <img src={`http://localhost:5000/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
+          <img src={`https://e-commerce-server-o0pj.onrender.com/uploads/${value.image[0]}`} alt="" className="cardImage w-100" />
           <h6 className="py-2">{value.name}</h6>
           <p className="product-marque">{value.marque} </p>
           <p className="product-price">{value.price}$</p>
